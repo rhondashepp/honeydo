@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="honeydolist.css">
+    <title>Honey Do List</title>
+
+
+</head>
+
+<body background="—Pngtree—set of sweety love sticker_6643361.png">
+    <audio controls id="mp3">
+        <source src="mixed-whip-crack.mp3" id="audio" type="audio/mpeg">
+    </audio>
+
+    <audio controls id="tada">
+        <source src="tada.mp3" id="audio" type="audio/mpeg">
+    </audio>
+
+    <h1>Honey Do List</h1>
+
+    <div class="container" id="button">
+        <div class="row">
+            <div class="col">
+                <form id="myForm">
+                    <label for="item"><strong>Honey Will You Please</strong></label>
+                    <input id="item" type="text" class="btn" name="item">
+                    <button onClick="addItem()" class="box">Add</button>
+
+                    <ul id="toDoList"></ul>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+        // add your JavaScript code ;
+        let toDo = [];
+        const toDoList = document.getElementById("toDoList");
+
+
+
+        function addItem() {
+            event.preventDefault();
+
+            const item = document.getElementById("item").value;
+            console.log(item);
+            if (toDo.includes(item)) {
+                alert(`The item ${item} already in the list`);
+            } else {
+                toDo.push(item);
+                toDo.sort();
+
+                removeList();
+                makeList();
+                playSound();
+
+            }
+
+            document.getElementById("myForm").reset();
+            console.log(toDo);
+
+        }
+
+        function makeList() {
+            for (item of toDo) {
+                const listItem = document.createElement('li');
+                listItem.addEventListener("click", removeItem);
+                listItem.textContent = item;
+                console.log("inside makeList");
+                console.log(item);
+                toDoList.appendChild(listItem);
+
+            }
+
+        }
+
+       function playSound() {
+           const sound = document.getElementById("mp3");
+            sound.play();
+        }
+
+
+        function removeList() {
+            while (toDoList.firstChild) {
+                toDoList.removeChild(toDoList.firstChild);
+            }
+
+        }
+
+
+        function removeItem(event) {
+            const item = event.currentTarget.textContent;
+            const index = toDo.indexOf(item);
+            toDo.splice(index, 1);
+            removeList();
+            makeList();
+            playTada();
+        }
+
+        function playTada() {
+           const sound = document.getElementById("tada");
+            sound.play();
+
+        } function playTada() {
+           const sound = document.getElementById("tada");
+            sound.play();
+        }
+    </script>
+</body>
+
+</html>

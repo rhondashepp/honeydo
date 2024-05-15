@@ -1,0 +1,49 @@
+body {
+    /*background-size: contain;*/
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;   
+}
+
+h1 {
+    
+    text-align: center;
+}
+
+form {
+
+    text-align: center;
+    padding: 10px;
+
+}
+
+.btn {
+    background-color: lightpink;
+   
+}
+
+* {
+    padding: 20;
+    margin: 20;
+    border: 5px ;
+    outline: none;
+}
+
+.box {
+    background-color: lightpink;
+}
+
+#toDoList {
+   list-style: none;
+}
+
+#mp3 {
+  display: none;  
+}
+
+#tada {
+    display: none;
+}
+
+
+
